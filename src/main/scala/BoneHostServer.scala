@@ -115,16 +115,10 @@ object BoneHostServer {
       // one line of input stream
       var data = in.readLine()
 
-      if (data == null)
+      if (data == null) {
         println("data is null!")
-
-      // DEBUG: for unknown reasons data may be 'null'
-      // check for 'null' and skip data then
-      while (data == null) {
-        data = in.readLine()
+        return; 
       }
-
-      println(data)
 
       // check for post data (in first line)
       val isPost: Boolean = data.startsWith("POST");
@@ -146,7 +140,8 @@ object BoneHostServer {
 
       // process http request header line by line ...
       // ... as long as data come's in and there is no empty line (length of data is zero)
-      while (((data = in.readLine()) != null) && (data.length != 0)) {
+      data = in.readLine();
+      while ( (data != null) && (data.length != 0) ) {
 
         println(data)
 
@@ -286,6 +281,8 @@ object BoneHostServer {
         } else {
           //println("unknown request!")
         }
+
+	data = in.readLine();
 
       }
 
