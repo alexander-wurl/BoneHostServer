@@ -15,3 +15,6 @@ libraryDependencies ++= Seq(
   "ch.unibas.cs.gravis" % "scalismo-native-all" % "4.0.0",
   "ch.unibas.cs.gravis" %% "scalismo-ui" % "0.13.1"
 )
+
+/* output */
+assemblyOutputPath in assembly := file("/home/BoneHostServer/BoneHostServer.jar")
